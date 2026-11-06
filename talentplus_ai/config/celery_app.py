@@ -13,6 +13,8 @@ app = Celery("talentplus_ai")
 # - namespace='CELERY' means all celery-related configuration keys
 #   should have a `CELERY_` prefix.
 app.config_from_object("django.conf:settings", namespace="CELERY")
+# Stay up when Redis is still starting, instead of exiting on the first attempt.
+app.conf.broker_connection_retry_on_startup = True
 
 
 @setup_logging.connect

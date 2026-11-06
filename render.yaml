@@ -82,7 +82,9 @@ services:
     region: singapore
     dockerfilePath: ./talentplus_ai/Dockerfile
     dockerContext: ./talentplus_ai
-    dockerCommand: celery -A config.celery_app worker -l info
+    # solo = one process. Prefork loads LangGraph, Docling, and Torch per
+    # child and gets killed on the 2 GB instance.
+    dockerCommand: celery -A config.celery_app worker --loglevel=info --pool=solo --concurrency=1
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: config.settings.production
