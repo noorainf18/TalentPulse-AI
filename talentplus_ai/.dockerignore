@@ -1,0 +1,13 @@
+.venv
+venv
+.git
+.envs
+.env
+data
+outputs
+staticfiles
+**/__pycache__
+**/*.pyc
+.pytest_cache
+htmlcov
+*.pdf
