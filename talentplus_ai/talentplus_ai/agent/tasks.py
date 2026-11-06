@@ -17,7 +17,7 @@ from talentplus_ai.agent.graph import run_screening
 logger = logging.getLogger(__name__)
 
 
-@shared_task(bind=True, max_retries=3, default_retry_delay=30)
+@shared_task(bind=True, max_retries=3, default_retry_delay=30, ignore_result=True)
 def trigger_screening(self, candidate_id: str, evaluation_id: str):
     """
     Celery task that invokes the LangGraph screening pipeline.

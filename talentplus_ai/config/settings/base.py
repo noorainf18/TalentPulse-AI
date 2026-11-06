@@ -286,11 +286,26 @@ CELERY_RESULT_BACKEND = REDIS_URL
 CELERY_REDIS_BACKEND_USE_SSL = CELERY_BROKER_USE_SSL
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#result-extended
 CELERY_RESULT_EXTENDED = True
+# Screening status lives on the evaluation row. Do not open a Redis
+# pubsub just to enqueue: a dead result backend retries for ~20s and
+# the upload request dies with a 500 after the resume is already parsed.
+CELERY_TASK_IGNORE_RESULT = True
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#result-backend-always-retry
 # https://github.com/celery/celery/pull/6122
-CELERY_RESULT_BACKEND_ALWAYS_RETRY = True
+CELERY_RESULT_BACKEND_ALWAYS_RETRY = False
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#result-backend-max-retries
-CELERY_RESULT_BACKEND_MAX_RETRIES = 10
+CELERY_RESULT_BACKEND_MAX_RETRIES = 1
+CELERY_RESULT_BACKEND_TRANSPORT_OPTIONS = {
+    "retry_policy": {
+        "max_retries": 1,
+        "interval_start": 0,
+        "interval_step": 0,
+        "interval_max": 0,
+    }
+}
+# Fail a publish quickly when the broker host does not resolve.
+# 0 means retry forever.
+CELERY_BROKER_CONNECTION_MAX_RETRIES = 2
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#std:setting-accept_content
 CELERY_ACCEPT_CONTENT = ["json"]
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#std:setting-task_serializer

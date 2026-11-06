@@ -9,6 +9,10 @@ databases:
     ipAllowList: []
 
 services:
+  # The internal host (red-...) only resolves for services in this
+  # same region. Render cannot move an existing Key Value instance.
+  # If talentplus-redis is in another region, delete it and sync again
+  # so REDIS_URL is rewritten to the new Singapore instance.
   - type: keyvalue
     name: talentplus-redis
     plan: starter

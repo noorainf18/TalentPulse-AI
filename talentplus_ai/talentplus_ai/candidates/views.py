@@ -169,20 +169,59 @@ class ResumeUploadView(APIView):
         except Exception as e:
             logger.warning("Vectorization failed for %s: %s", candidate.id, e)
 
-        # 8. Queue the LangGraph screening agent
+        # 8. Queue the LangGraph screening agent. The resume is already saved,
+        # so a down broker must not turn this request into a 500.
+        from kombu.exceptions import OperationalError
+
         from talentplus_ai.agent.tasks import trigger_screening
-        trigger_screening.delay(str(candidate.id), str(evaluation.id))
+
+        queued = True
+        try:
+            trigger_screening.apply_async(
+                args=[str(candidate.id), str(evaluation.id)],
+                ignore_result=True,
+                retry=False,
+            )
+        except OperationalError as exc:
+            queued = False
+            logger.exception(
+                "Could not queue screening for %s: %s", candidate.id, exc
+            )
+            trace = list(evaluation.trace_log or [])
+            trace.append(
+                {
+                    "step": "Queue",
+                    "message": (
+                        "Resume saved, but screening was not queued. "
+                        "Redis is unreachable from this service."
+                    ),
+                    "status": "error",
+                }
+            )
+            evaluation.trace_log = trace
+            evaluation.reasoning = (
+                "Resume saved. Screening is waiting for the worker queue."
+            )
+            evaluation.save(update_fields=["trace_log", "reasoning"])
 
         logger.info(
-            "Candidate %s (%s) submitted for role '%s'. Screening queued.",
-            candidate.name, candidate.id, target_role or "General",
+            "Candidate %s (%s) submitted for role '%s'. Screening queued=%s.",
+            candidate.name, candidate.id, target_role or "General", queued,
         )
 
         return Response(
             {
-                "message": "Resume uploaded successfully. Screening has started.",
+                "message": (
+                    "Resume uploaded successfully. Screening has started."
+                    if queued
+                    else (
+                        "Resume saved, but screening was not queued. "
+                        "Redis is unreachable from this service."
+                    )
+                ),
                 "candidate_id": str(candidate.id),
                 "evaluation_id": str(evaluation.id),
+                "screening_queued": queued,
             },
             status=status.HTTP_202_ACCEPTED,
         )
