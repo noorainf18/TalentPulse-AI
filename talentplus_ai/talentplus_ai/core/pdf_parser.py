@@ -173,6 +173,22 @@ def _claude_extract(structured_md: str, raw_text: str, hyperlinks: list[str] | N
 # MAIN ENTRY POINT
 # ─────────────────────────────────────────────────────────────────
 
+def _pdfplumber_extract(file_bytes: bytes) -> tuple[str, str, list[str]]:
+    """Text fallback when Docling's layout model cannot load."""
+    import pdfplumber
+
+    pages: list[str] = []
+    with pdfplumber.open(BytesIO(file_bytes)) as pdf:
+        for page in pdf.pages:
+            pages.append(page.extract_text() or "")
+    raw_text = "\n\n".join(pages).strip()
+    if not raw_text:
+        raise PDFParseError(
+            "Could not read text from this PDF. It may be a scanned image."
+        )
+    return raw_text, raw_text, _extract_hyperlinks(file_bytes)
+
+
 def extract_text_from_pdf(file: BinaryIO) -> Dict[str, Any]:
     """
     Full pipeline: PDF file → structured dict ready for the Candidate model.
@@ -181,7 +197,11 @@ def extract_text_from_pdf(file: BinaryIO) -> Dict[str, Any]:
     """
     file_bytes = file.read()
 
-    raw_text, structured_md, hyperlinks = _docling_extract(file_bytes)
+    try:
+        raw_text, structured_md, hyperlinks = _docling_extract(file_bytes)
+    except PDFParseError as exc:
+        logger.warning("Docling parse failed, using pdfplumber: %s", exc)
+        raw_text, structured_md, hyperlinks = _pdfplumber_extract(file_bytes)
     extracted = _claude_extract(structured_md, raw_text, hyperlinks)
 
     github_username = extracted.get("github_username") or ""

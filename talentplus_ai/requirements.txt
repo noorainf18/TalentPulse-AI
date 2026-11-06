@@ -19,6 +19,8 @@ daphne==4.1.0
 
 # ─── Celery ─────────────────────────────────────────────────────
 celery==5.3.6
+# kombu 5.5+ rejects redis-py 5 and kills the worker on boot.
+kombu==5.3.7
 redis==5.0.1
 django-celery-results==2.5.1
 django-celery-beat==2.6.0
