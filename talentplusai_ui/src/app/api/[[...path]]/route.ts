@@ -48,14 +48,25 @@ async function proxy(request: NextRequest, pathSegments: string[] | undefined) {
     );
   }
 
-  const res = new NextResponse(upstream.body, {
+  // Buffer the upstream body. Streaming it through NextResponse drops the
+  // last two bytes of small Django JSON responses, which breaks JSON.parse
+  // on the sign-in page (CSRF token comes back without the closing "}").
+  const body = await upstream.arrayBuffer();
+  const res = new NextResponse(body, {
     status: upstream.status,
     statusText: upstream.statusText,
   });
 
   upstream.headers.forEach((value, key) => {
     const k = key.toLowerCase();
-    if (k === "set-cookie" || k === "transfer-encoding") return;
+    if (
+      k === "set-cookie" ||
+      k === "transfer-encoding" ||
+      k === "content-length" ||
+      k === "content-encoding"
+    ) {
+      return;
+    }
     res.headers.set(key, value);
   });
   for (const cookie of upstream.headers.getSetCookie()) {
