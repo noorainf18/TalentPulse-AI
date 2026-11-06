@@ -1,0 +1,15 @@
+.venv/
+venv/
+.env
+.env.local
+**/.env
+!**/.env.example
+.envs/
+.next/
+__pycache__/
+*.pyc
+.pytest_cache/
+**/data/chroma/
+**/*.pdf
+talentplus_ai/talentplus_ai/media/resumes/
+node_modules/

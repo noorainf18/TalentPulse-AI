@@ -1,0 +1,145 @@
+# Render Blueprint for the TalentPlus monorepo.
+# Create one GitHub repo whose root is this folder, then:
+# Render Dashboard → New → Blueprint → select the repo.
+#
+# After the first deploy, set the secret env vars marked sync: false
+# in the dashboard. Do not commit .env files.
+
+services:
+  - type: keyvalue
+    name: talentplus-redis
+    plan: starter
+    ipAllowList: []
+    maxmemoryPolicy: allkeys-lru
+
+  - type: web
+    name: talentplus-api
+    runtime: docker
+    plan: standard
+    region: singapore
+    dockerfilePath: ./talentplus_ai/Dockerfile
+    dockerContext: ./talentplus_ai
+    healthCheckPath: /health/
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: config.settings.production
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_ADMIN_URL
+        value: admin/
+      - key: DJANGO_ALLOWED_HOSTS
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: CSRF_TRUSTED_ORIGINS
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: LIVEKIT_URL
+        sync: false
+      - key: LIVEKIT_API_KEY
+        sync: false
+      - key: LIVEKIT_API_SECRET
+        sync: false
+      - key: DEEPGRAM_API_KEY
+        sync: false
+      - key: CARTESIA_API_KEY
+        sync: false
+      - key: TALENTPLUSAI_EMBEDDING_URL
+        sync: false
+      - key: REDIS_URL
+        fromService:
+          name: talentplus-redis
+          type: keyvalue
+          property: connectionString
+
+  - type: worker
+    name: talentplus-celery
+    runtime: docker
+    plan: standard
+    region: singapore
+    dockerfilePath: ./talentplus_ai/Dockerfile
+    dockerContext: ./talentplus_ai
+    dockerCommand: celery -A config.celery_app worker -l info
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: config.settings.production
+      - key: DJANGO_SECRET_KEY
+        fromService:
+          name: talentplus-api
+          type: web
+          envVarKey: DJANGO_SECRET_KEY
+      - key: DJANGO_ADMIN_URL
+        value: admin/
+      - key: DJANGO_ALLOWED_HOSTS
+        fromService:
+          name: talentplus-api
+          type: web
+          envVarKey: DJANGO_ALLOWED_HOSTS
+      - key: DATABASE_URL
+        fromService:
+          name: talentplus-api
+          type: web
+          envVarKey: DATABASE_URL
+      - key: ANTHROPIC_API_KEY
+        fromService:
+          name: talentplus-api
+          type: web
+          envVarKey: ANTHROPIC_API_KEY
+      - key: GITHUB_TOKEN
+        fromService:
+          name: talentplus-api
+          type: web
+          envVarKey: GITHUB_TOKEN
+      - key: REDIS_URL
+        fromService:
+          name: talentplus-redis
+          type: keyvalue
+          property: connectionString
+
+  - type: web
+    name: talentplus-embeddings
+    runtime: docker
+    plan: standard
+    region: singapore
+    dockerfilePath: ./talentplusai_embedding/Dockerfile
+    dockerContext: ./talentplusai_embedding
+    healthCheckPath: /health
+
+  - type: web
+    name: talentplus-app
+    runtime: node
+    plan: starter
+    region: singapore
+    rootDir: talentplusai_ui
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          name: talentplus-api
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
+
+  - type: web
+    name: talentplus-landing
+    runtime: static
+    rootDir: talentplus-landing
+    buildCommand: echo "static landing"
+    staticPublishPath: .

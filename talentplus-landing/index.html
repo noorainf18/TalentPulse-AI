@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TalentPlus AI — Hiring Intelligence for High-Growth Teams</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ─── NEURAL CANVAS BACKGROUND ────────────────── -->
+  <canvas id="neuralCanvas"></canvas>
+
+  <!-- ════════════════════════════════════════════════
+       NAV
+  ════════════════════════════════════════════════ -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <!-- T+ logo from image 2 — blue rounded square with T+ mark -->
+        <div class="logo-mark">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="80" height="80" rx="18" fill="url(#logoGrad)"/>
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#2ee6d2"/>
+                <stop offset="100%" stop-color="#0f766e"/>
+              </linearGradient>
+            </defs>
+            <!-- T letter -->
+            <rect x="18" y="22" width="30" height="7" rx="2" fill="white"/>
+            <rect x="28" y="22" width="10" height="28" rx="2" fill="white"/>
+            <!-- + symbol (smaller, top-right) -->
+            <rect x="56" y="26" width="12" height="4" rx="1.5" fill="white" fill-opacity="0.9"/>
+            <rect x="61" y="21" width="4" height="12" rx="1.5" fill="white" fill-opacity="0.9"/>
+          </svg>
+        </div>
+        <span class="logo-text">TalentPlus <span class="logo-ai">AI</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#gpt">TalentPlus GPT</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="#" class="btn-ghost" data-app-login>Sign in</a>
+        <a href="#" class="btn-primary magnetic">Get early access</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#gpt">TalentPlus GPT</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#" class="btn-primary">Get early access</a></li>
+      <li><a href="#" class="btn-ghost" data-app-login>Sign in</a></li>
+    </ul>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+
+      <div class="hero-chips aos-fade-up">
+        <span class="chip"><span class="chip-icon">⚡</span> LangGraph screening</span>
+        <span class="chip"><span class="chip-icon">🔍</span> GitHub evidence mapping</span>
+        <span class="chip"><span class="chip-icon">🧠</span> RAG-powered chat</span>
+        <span class="chip"><span class="chip-icon">🔒</span> Session-aware auth</span>
+      </div>
+
+      <h1 class="hero-title aos-fade-up aos-delay-1">
+        Global hiring intelligence<br/>
+        <span class="gradient-text">for high-growth teams</span>
+      </h1>
+
+      <p class="hero-sub aos-fade-up aos-delay-2">
+        TalentPlus AI parses resumes, maps technical evidence, and produces<br class="hide-mobile"/>
+        structured fit-gap decisions — in one secure, session-aware workflow.
+      </p>
+
+      <div class="hero-actions aos-fade-up aos-delay-3">
+        <a href="#pricing" class="btn-primary btn-lg magnetic">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg>
+          Explore plans &amp; pricing
+        </a>
+      </div>
+
+      <!-- HERO DASHBOARD MOCKUP -->
+      <div class="hero-mockup aos-fade-up aos-delay-4">
+        <div class="mockup-glow"></div>
+        <div class="mockup-frame">
+          <div class="mockup-bar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <span class="mockup-url">talentplus.ai/dashboard</span>
+          </div>
+          <div class="mockup-body">
+            <!-- SIDEBAR MINI -->
+            <div class="mockup-sidebar">
+              <div class="ms-logo">
+                <svg width="20" height="20" viewBox="0 0 80 80" fill="none">
+                  <rect width="80" height="80" rx="18" fill="url(#sLogoGrad)"/>
+                  <defs>
+                    <linearGradient id="sLogoGrad" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#2ee6d2"/>
+                      <stop offset="100%" stop-color="#0f766e"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="18" y="22" width="30" height="7" rx="2" fill="white"/>
+                  <rect x="28" y="22" width="10" height="28" rx="2" fill="white"/>
+                  <rect x="56" y="26" width="12" height="4" rx="1.5" fill="white" fill-opacity="0.9"/>
+                  <rect x="61" y="21" width="4" height="12" rx="1.5" fill="white" fill-opacity="0.9"/>
+                </svg>
+              </div>
+              <div class="ms-item active">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/></svg>
+              </div>
+              <div class="ms-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="ms-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="ms-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+            <!-- MAIN CONTENT -->
+            <div class="mockup-main">
+              <div class="mm-header">
+                <div class="mm-title">Hiring Intelligence Dashboard</div>
+                <div class="mm-upload-btn">Upload CV</div>
+              </div>
+              <div class="mm-stats">
+                <div class="stat-card">
+                  <div class="sc-label">TOTAL CANDIDATES</div>
+                  <div class="sc-value">247</div>
+                  <div class="sc-bar" style="--w:82%;--c:var(--teal)"></div>
+                </div>
+                <div class="stat-card">
+                  <div class="sc-label">AI SCREENED</div>
+                  <div class="sc-value">241</div>
+                  <div class="sc-bar" style="--w:97%;--c:#818cf8"></div>
+                </div>
+                <div class="stat-card">
+                  <div class="sc-label">SHORTLISTED</div>
+                  <div class="sc-value">38</div>
+                  <div class="sc-bar" style="--w:15%;--c:#34d399"></div>
+                </div>
+                <div class="stat-card">
+                  <div class="sc-label">AVG SCORE</div>
+                  <div class="sc-value">71.8</div>
+                  <div class="sc-bar" style="--w:71%;--c:#f59e0b"></div>
+                </div>
+              </div>
+              <!-- CANDIDATE ROWS -->
+              <div class="mm-candidates">
+                <div class="mc-row">
+                  <div class="mc-avatar" style="--hue:190">AP</div>
+                  <div class="mc-info">
+                    <div class="mc-name">Arjun Patel</div>
+                    <div class="mc-role">Senior Backend Engineer</div>
+                  </div>
+                  <div class="mc-score" style="--s:88">88</div>
+                  <div class="mc-badge shortlisted">Shortlisted</div>
+                </div>
+                <div class="mc-row">
+                  <div class="mc-avatar" style="--hue:280">SK</div>
+                  <div class="mc-info">
+                    <div class="mc-name">Shreya Kapoor</div>
+                    <div class="mc-role">ML Engineer</div>
+                  </div>
+                  <div class="mc-score" style="--s:76">76</div>
+                  <div class="mc-badge review">In Review</div>
+                </div>
+                <div class="mc-row">
+                  <div class="mc-avatar" style="--hue:130">RN</div>
+                  <div class="mc-info">
+                    <div class="mc-name">Riya Nair</div>
+                    <div class="mc-role">Full Stack Developer</div>
+                  </div>
+                  <div class="mc-score" style="--s:92">92</div>
+                  <div class="mc-badge shortlisted">Shortlisted</div>
+                </div>
+              </div>
+              <!-- SCAN ANIMATION OVERLAY -->
+              <div class="mm-scan-doc" id="scanDoc">
+                <div class="scan-lines">
+                  <div class="scan-line-item"></div>
+                  <div class="scan-line-item w70"></div>
+                  <div class="scan-line-item w85"></div>
+                  <div class="scan-line-item w60"></div>
+                </div>
+                <div class="scan-beam" id="scanBeam"></div>
+                <div class="scan-label">Parsing resume...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- HERO AMBIENT BLOBS -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       FEATURES — tabbed pillars (order: 1)
+  ════════════════════════════════════════════════ -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <div class="section-header aos-fade-up">
+        <span class="section-tag">FEATURES</span>
+        <h2>One surface for evidence-led technical hiring</h2>
+        <p>TalentPlus AI turns unstructured resumes into structured profiles, runs a LangGraph screening agent against real GitHub signal, and serves everything in a secure recruiter workspace — including a RAG chat that only answers from <em>your</em> data.</p>
+      </div>
+
+      <div class="landing-tabs" data-tabs>
+        <div class="landing-tab-bar" role="tablist">
+          <button type="button" class="landing-tab active" data-tab="feat-ingest" role="tab" aria-selected="true">Ingestion &amp; memory</button>
+          <button type="button" class="landing-tab" data-tab="feat-agent" role="tab" aria-selected="false">Agentic screening</button>
+          <button type="button" class="landing-tab" data-tab="feat-review" role="tab" aria-selected="false">Review &amp; decisions</button>
+          <button type="button" class="landing-tab" data-tab="feat-trust" role="tab" aria-selected="false">Security &amp; scale</button>
+        </div>
+
+        <div class="landing-panel active" data-panel="feat-ingest" role="tabpanel">
+          <p class="landing-panel-lead">PDFs are normalized with Docling, then Claude fills a strict JSON schema. Every field you care about — skills, roles, projects, education — lands in Postgres and is chunked for Chroma so search and GPT stay aligned with the source resume.</p>
+          <div class="landing-card-grid">
+            <div class="landing-mini glass-card aos-fade-up"><h4>Docling + pdf pipeline</h4><p>Layout-aware extraction, hyperlink preservation for evidence URLs, deterministic markdown for tracing.</p></div>
+            <div class="landing-mini glass-card aos-fade-up aos-delay-1"><h4>Structured outputs</h4><p>Typed schema for downstream scoring; fewer surprises when the agent reads candidate facts.</p></div>
+            <div class="landing-mini glass-card aos-fade-up aos-delay-2"><h4>Vector memory</h4><p>Embeddings per resume power TalentPlus GPT and hybrid retrieval without copying data to a third-party store.</p></div>
+          </div>
+        </div>
+
+        <div class="landing-panel" data-panel="feat-agent" role="tabpanel" hidden>
+          <p class="landing-panel-lead">A multi-node LangGraph orchestrates research, scoring, gap analysis, and fit decisions. GitHub is queried as a first-class evidence source; Celery runs the graph asynchronously so your dashboard stays responsive.</p>
+          <div class="landing-card-grid">
+            <div class="landing-mini glass-card"><h4>LangGraph control flow</h4><p>Explicit nodes and edges replace fragile prompt chains — easy to audit and extend.</p></div>
+            <div class="landing-mini glass-card"><h4>GitHub evidence</h4><p>Languages, activity, and repo depth validate claims instead of keyword-matching buzzwords.</p></div>
+            <div class="landing-mini glass-card"><h4>Async workers</h4><p>Celery queues heavy steps so recruiters never block on long-running research.</p></div>
+          </div>
+        </div>
+
+        <div class="landing-panel" data-panel="feat-review" role="tabpanel" hidden>
+          <p class="landing-panel-lead">Recruiters get a single candidate cockpit: resume, scores, GitHub breakdown, agent trace, and feedback loops. Fit-gap dimensions make comparisons fairer than a single thumbs-up score.</p>
+          <div class="landing-card-grid">
+            <div class="landing-mini glass-card"><h4>Evidence dashboard</h4><p>Tabbed profile + trace viewer; every automated claim links back to source context.</p></div>
+            <div class="landing-mini glass-card"><h4>Fit-gap scoring</h4><p>Multi-axis breakdowns highlight where a candidate exceeds or misses the bar.</p></div>
+            <div class="landing-mini glass-card"><h4>Live progress</h4><p>WebSocket updates stream agent milestones while screening runs in the background.</p></div>
+          </div>
+        </div>
+
+        <div class="landing-panel" data-panel="feat-trust" role="tabpanel" hidden>
+          <p class="landing-panel-lead">Sessions stay server-side; CSRF-protected APIs; CORS boundaries tuned for your SPA. MCP hooks let enterprises wire ATS, ticketing, or internal tools without forking the core product.</p>
+          <div class="landing-card-grid">
+            <div class="landing-mini glass-card"><h4>Session-aware auth</h4><p>Django sessions and secure cookies — the same model your Next.js workspace expects.</p></div>
+            <div class="landing-mini glass-card"><h4>Operational guardrails</h4><p>Rate limits, isolated tenant data paths, and configurable retention policies.</p></div>
+            <div class="landing-mini glass-card"><h4>MCP-ready</h4><p>Extend the stack with internal APIs and HR tools through Model Context Protocol surfaces.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="features-bento features-bento-below aos-fade-up">
+        <div class="feature-card bento-sm glass-card aos-fade-up aos-delay-1">
+          <div class="fc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>LangGraph Agent</h3>
+          <p>Six-node graph: intake → research → score → gap → decide → log. Every step traced and persisted.</p>
+          <div class="agent-trace">
+            <div class="trace-step done">Research</div>
+            <div class="trace-arrow">→</div>
+            <div class="trace-step done">Score</div>
+            <div class="trace-arrow">→</div>
+            <div class="trace-step active">Gap</div>
+            <div class="trace-arrow">→</div>
+            <div class="trace-step">Decide</div>
+          </div>
+        </div>
+        <div class="feature-card bento-sm glass-card aos-fade-up aos-delay-2">
+          <div class="fc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>GitHub Evidence Mapping</h3>
+          <p>Automatically surfaces repo activity, commit depth, and language signals to validate resume claims.</p>
+          <div class="gh-bars">
+            <div class="gh-bar-item">
+              <span>Python</span>
+              <div class="gh-bar"><div class="gh-fill" style="--w:88%"></div></div>
+              <span class="gh-pct">88%</span>
+            </div>
+            <div class="gh-bar-item">
+              <span>TypeScript</span>
+              <div class="gh-bar"><div class="gh-fill" style="--w:62%"></div></div>
+              <span class="gh-pct">62%</span>
+            </div>
+            <div class="gh-bar-item">
+              <span>Go</span>
+              <div class="gh-bar"><div class="gh-fill" style="--w:34%"></div></div>
+              <span class="gh-pct">34%</span>
+            </div>
+          </div>
+        </div>
+        <div class="feature-card bento-md glass-card aos-fade-up">
+          <div class="fc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Structured Fit-Gap Scoring</h3>
+          <p>Every candidate gets a numeric score with dimension breakdown — skills match, experience depth, project relevance, and cultural signals.</p>
+          <div class="score-breakdown">
+            <div class="sb-item">
+              <span>Skills match</span>
+              <div class="sb-track"><div class="sb-fill" style="--w:90%;--c:var(--teal)"></div></div>
+              <span>90</span>
+            </div>
+            <div class="sb-item">
+              <span>Experience depth</span>
+              <div class="sb-track"><div class="sb-fill" style="--w:74%;--c:#818cf8"></div></div>
+              <span>74</span>
+            </div>
+            <div class="sb-item">
+              <span>Project relevance</span>
+              <div class="sb-track"><div class="sb-fill" style="--w:85%;--c:#34d399"></div></div>
+              <span>85</span>
+            </div>
+            <div class="sb-item">
+              <span>Cultural fit</span>
+              <div class="sb-track"><div class="sb-fill" style="--w:68%;--c:#f59e0b"></div></div>
+              <span>68</span>
+            </div>
+          </div>
+        </div>
+        <div class="feature-card bento-md glass-card aos-fade-up aos-delay-1">
+          <div class="fc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Live Evaluation Updates</h3>
+          <p>Django Channels WebSocket streams agent progress directly to the recruiter's browser — no polling, no page refresh.</p>
+          <div class="live-feed">
+            <div class="lf-item">
+              <div class="lf-pulse"></div>
+              <span class="lf-text">Agent: research_node complete</span>
+              <span class="lf-time">0.8s</span>
+            </div>
+            <div class="lf-item">
+              <div class="lf-pulse active"></div>
+              <span class="lf-text">Agent: scoring_node running…</span>
+              <span class="lf-time">now</span>
+            </div>
+            <div class="lf-item dim">
+              <div class="lf-pulse"></div>
+              <span class="lf-text">Agent: gap_analysis_node pending</span>
+              <span class="lf-time">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="feature-card bento-sm glass-card aos-fade-up aos-delay-2">
+          <div class="fc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>MCP Integration</h3>
+          <p>Model Context Protocol tools for extending the agent with external APIs, ATS webhooks, and HR data sources.</p>
+          <div class="fc-tags" style="margin-top:1rem">
+            <span>mcp/health</span>
+            <span>mcp/tools</span>
+            <span>Extendable</span>
+          </div>
+        </div>
+        <div class="feature-card bento-sm glass-card aos-fade-up aos-delay-3">
+          <div class="fc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Enterprise Security</h3>
+          <p>Session auth + CSRF tokens. First-party cookie proxy. No resume data leaves your stack unencrypted.</p>
+          <div class="fc-tags" style="margin-top:1rem">
+            <span>Django Sessions</span>
+            <span>CSRF Protected</span>
+            <span>CORS Isolated</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       HOW IT WORKS — PIPELINE FLOW (order: 2)
+  ════════════════════════════════════════════════ -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-inner">
+      <div class="section-header aos-fade-up">
+        <span class="section-tag">HOW IT WORKS</span>
+        <h2>How TalentPlus AI runs end-to-end</h2>
+        <p class="how-lead"><strong>In one sentence:</strong> you upload a PDF once; we extract structured candidate data, enrich it with GitHub and vector memory, run an auditable LangGraph screening job, and drop ranked, evidence-linked profiles into your dashboard and TalentPlus GPT.</p>
+        <p>There is no manual copy-paste between tools. Sessions keep recruiters isolated per workspace, and every automated decision carries a trace you can open in the UI. The five stages below mirror the actual production pipeline — from file intake to conversational search over your pool.</p>
+      </div>
+
+      <div class="pipeline-flow">
+        <div class="pipeline-line"></div>
+
+        <div class="pipeline-step aos-fade-up">
+          <div class="step-number">01</div>
+          <div class="step-card glass-card">
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Upload PDF</h3>
+            <p>Drop any resume — PDFs are extracted via Docling, normalized to markdown, and hyperlinks are captured for evidence mapping.</p>
+            <div class="step-tag">Docling + pdfplumber</div>
+          </div>
+        </div>
+
+        <div class="pipeline-step aos-fade-up aos-delay-1">
+          <div class="step-number">02</div>
+          <div class="step-card glass-card">
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Structured Extraction</h3>
+            <p>Claude parses name, email, skills, experience, projects, and education into a typed JSON schema — ready for DB storage and scoring.</p>
+            <div class="step-tag">Anthropic structured outputs</div>
+          </div>
+        </div>
+
+        <div class="pipeline-step aos-fade-up aos-delay-2">
+          <div class="step-number">03</div>
+          <div class="step-card glass-card">
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>LangGraph Agent Screening</h3>
+            <p>A multi-node graph runs: GitHub research → skill scoring → gap analysis → fit decision → trace logging. Fully async via Celery.</p>
+            <div class="step-tag">LangGraph + Celery + GitHub API</div>
+          </div>
+        </div>
+
+        <div class="pipeline-step aos-fade-up aos-delay-3">
+          <div class="step-number">04</div>
+          <div class="step-card glass-card">
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Evidence Dashboard</h3>
+            <p>Review the full candidate: profile, GitHub evidence, gap analysis, agent trace, and recruiter feedback tabs — all in one secure view.</p>
+            <div class="step-tag">Django REST + Next.js SPA</div>
+          </div>
+        </div>
+
+        <div class="pipeline-step aos-fade-up aos-delay-4">
+          <div class="step-number">05</div>
+          <div class="step-card glass-card">
+            <div class="step-icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>TalentPlus GPT Chat</h3>
+            <p>Ask natural language questions across your whole candidate pool. RAG retrieves from Chroma vectors; Claude synthesizes ranked answers.</p>
+            <div class="step-tag">Chroma RAG + Anthropic</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       TALENTPLUS GPT — dedicated (order: 3)
+  ════════════════════════════════════════════════ -->
+  <section class="gpt-section" id="gpt">
+    <div class="section-inner">
+      <div class="section-header aos-fade-up">
+        <span class="section-tag">TALENTPLUS GPT</span>
+        <h2>Natural-language hiring intelligence over your own candidates</h2>
+        <p>TalentPlus GPT is not a generic chatbot. It is session-aware RAG: every answer is grounded in resumes and screening artifacts you have already ingested. Ask stack comparisons, rediscover overlooked profiles, or validate a hiring manager’s hypothesis — without exporting spreadsheets or leaking context across teams.</p>
+      </div>
+
+      <div class="landing-tabs gpt-tabs" data-tabs>
+        <div class="landing-tab-bar" role="tablist">
+          <button type="button" class="landing-tab active" data-tab="gpt-overview" role="tab" aria-selected="true">Overview &amp; UI</button>
+          <button type="button" class="landing-tab" data-tab="gpt-example" role="tab" aria-selected="false">Example conversation</button>
+        </div>
+
+        <div class="landing-panel active" data-panel="gpt-overview" role="tabpanel">
+          <div class="feature-card bento-large glass-card gpt-overview-card aos-fade-up">
+            <div class="fc-content">
+              <div class="fc-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3>TalentPlus GPT</h3>
+              <p>Session-aware RAG chat over your entire candidate pool. Ask anything — &ldquo;Who has LangGraph + FastAPI?&rdquo; — and get evidence-grounded answers, not hallucinations.</p>
+              <div class="fc-tags">
+                <span>Session aware</span>
+                <span>Resume grounded</span>
+                <span>RAG powered</span>
+              </div>
+            </div>
+            <div class="fc-demo">
+              <div class="chat-demo">
+                <div class="chat-input-bar">
+                  <span class="chat-placeholder">Who has the strongest LangGraph + FastAPI experience?</span>
+                  <div class="chat-send-btn">Ask</div>
+                </div>
+                <div class="chat-response">
+                  <div class="chat-dot"></div>
+                  <div class="chat-text">
+                    <span class="type-cursor">Based on 9 candidates screened, Arjun Patel scores highest with LangGraph (production-grade, 2 repos) and FastAPI (3 services). Riya Nair is runner-up with FastAPI experience and 1 LangGraph project...</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="landing-panel" data-panel="gpt-example" role="tabpanel" hidden>
+          <div class="chatbot-mockup glass-card gpt-mockup-wide aos-fade-up">
+            <div class="cbm-header">
+              <div class="cbm-icon">
+                <svg viewBox="0 0 80 80" fill="none">
+                  <rect width="80" height="80" rx="18" fill="url(#cbmLogoGrad2)"/>
+                  <defs>
+                    <linearGradient id="cbmLogoGrad2" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#2ee6d2"/>
+                      <stop offset="100%" stop-color="#0f766e"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="18" y="22" width="30" height="7" rx="2" fill="white"/>
+                  <rect x="28" y="22" width="10" height="28" rx="2" fill="white"/>
+                  <rect x="56" y="26" width="12" height="4" rx="1.5" fill="white" fill-opacity="0.9"/>
+                  <rect x="61" y="21" width="4" height="12" rx="1.5" fill="white" fill-opacity="0.9"/>
+                </svg>
+              </div>
+              <div>
+                <div class="cbm-title">TalentPlus <span class="gradient-text">GPT</span></div>
+                <div class="cbm-sub">Ask anything about your candidate pool</div>
+              </div>
+            </div>
+            <div class="cbm-chips">
+              <div class="cbm-chip">Strongest LangGraph + FastAPI experience?</div>
+              <div class="cbm-chip">Hidden gems with strong GitHub activity but low resume scores.</div>
+              <div class="cbm-chip">Who has production-grade ML experience?</div>
+            </div>
+            <div class="cbm-messages">
+              <div class="cbm-msg user">Identify candidates with Docker + Kubernetes experience</div>
+              <div class="cbm-msg bot">
+                <div class="cbm-bot-icon">T+</div>
+                <div class="cbm-bot-text">Found 3 candidates matching Docker + Kubernetes: <strong>Arjun Patel</strong> (5 repos, production k8s), <strong>Meera Singh</strong> (2 Docker projects), and <strong>Karan Mehta</strong> (helm charts, 18 months exp)…</div>
+              </div>
+            </div>
+            <div class="cbm-input-bar">
+              <span>Write your query on candidates here...</span>
+              <div class="cbm-topk">top_k <strong>10</strong></div>
+              <div class="cbm-ask-btn">Ask</div>
+            </div>
+          </div>
+          <ul class="cg-list gpt-example-foot aos-fade-up">
+            <li><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="var(--teal)" stroke-width="1.2"/><path d="M6 10l3 3 5-5" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Multi-turn, session-persistent conversations</li>
+            <li><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="var(--teal)" stroke-width="1.2"/><path d="M6 10l3 3 5-5" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Configurable top-k retrieval depth</li>
+            <li><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="var(--teal)" stroke-width="1.2"/><path d="M6 10l3 3 5-5" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Hybrid reranking for precision</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       RESULTS — outcomes & proof (order: 4)
+  ════════════════════════════════════════════════ -->
+  <section class="metrics results-section" id="results">
+    <div class="section-inner">
+      <div class="section-header aos-fade-up">
+        <span class="section-tag">RESULTS</span>
+        <h2>What changes once TalentPlus AI is in the loop</h2>
+        <p>Use the tabs to switch the story — the numbers underneath stay tied to the same production stack you run in the workspace.</p>
+      </div>
+
+      <div class="landing-tabs results-tabs" data-tabs>
+        <div class="landing-tab-bar" role="tablist">
+          <button type="button" class="landing-tab active" data-tab="res-quality" role="tab" aria-selected="true">Quality &amp; accuracy</button>
+          <button type="button" class="landing-tab" data-tab="res-velocity" role="tab" aria-selected="false">Velocity &amp; throughput</button>
+          <button type="button" class="landing-tab" data-tab="res-trust" role="tab" aria-selected="false">Trust &amp; governance</button>
+        </div>
+        <div class="landing-panel active" data-panel="res-quality" role="tabpanel">
+          <p class="landing-panel-lead results-tab-lead">Structured extraction plus GitHub evidence reduces &ldquo;look good on paper&rdquo; hires. Recruiters see <strong>why</strong> a score changed — traceable nodes, not a black-box percentage — so hiring managers trust the first shortlist.</p>
+        </div>
+        <div class="landing-panel" data-panel="res-velocity" role="tabpanel" hidden>
+          <p class="landing-panel-lead results-tab-lead">Automating research, scoring, and ranking collapses first-pass review from days to minutes. Teams report <strong>6× faster</strong> shortlisting because the agent never sleeps and Celery keeps pipelines saturated.</p>
+        </div>
+        <div class="landing-panel" data-panel="res-trust" role="tabpanel" hidden>
+          <p class="landing-panel-lead results-tab-lead">Session-isolated workspaces, CSRF-aware APIs, and no third-party resume warehousing by default. Enterprise plans add MCP bridges and deployment options so legal and IT stay comfortable.</p>
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card aos-fade-up">
+          <div class="metric-value counter" data-target="97">0<span>%</span></div>
+          <div class="metric-label">Resume parse accuracy</div>
+          <div class="metric-sub">via Docling + Claude structured outputs</div>
+        </div>
+        <div class="metric-card aos-fade-up aos-delay-1">
+          <div class="metric-value counter" data-target="12">0<span>s</span></div>
+          <div class="metric-label">Avg. screening time per candidate</div>
+          <div class="metric-sub">LangGraph agent pipeline, async Celery</div>
+        </div>
+        <div class="metric-card aos-fade-up aos-delay-2">
+          <div class="metric-value counter" data-target="6">0<span>x</span></div>
+          <div class="metric-label">Faster shortlisting vs. manual review</div>
+          <div class="metric-sub">evidence-grounded, bias-reduced decisions</div>
+        </div>
+        <div class="metric-card aos-fade-up aos-delay-3">
+          <div class="metric-value counter" data-target="100">0<span>%</span></div>
+          <div class="metric-label">Session-isolated, secure pipeline</div>
+          <div class="metric-sub">first-party cookies, Django session auth</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       PRICING
+  ════════════════════════════════════════════════ -->
+  <section class="pricing" id="pricing">
+    <div class="section-inner">
+      <div class="section-header aos-fade-up">
+        <span class="section-tag">PRICING</span>
+        <h2>Simple, transparent plans</h2>
+        <p>One workspace for resume screening, evidence, chat, and voice interviews. No per-candidate fees.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card glass-card aos-fade-up">
+          <div class="pc-tier">Starter</div>
+          <div class="pc-price">$0 <span>/ mo</span></div>
+          <div class="pc-desc">For a recruiter trying the pipeline on a small pool.</div>
+          <ul class="pc-features">
+            <li>Up to 25 resume screens / month</li>
+            <li>PDF parse and structured profiles</li>
+            <li>LangGraph fit-gap screening</li>
+            <li>GitHub evidence mapping</li>
+            <li>Basic dashboard</li>
+            <li class="disabled">TalentPlus GPT</li>
+            <li class="disabled">Live score updates</li>
+            <li class="disabled">AI voice interviews</li>
+          </ul>
+          <a href="#" class="btn-ghost pc-btn" data-app-login>Create a free account</a>
+        </div>
+
+        <div class="pricing-card glass-card featured aos-fade-up aos-delay-1">
+          <div class="pc-popular">Most popular</div>
+          <div class="pc-tier">Growth</div>
+          <div class="pc-price">$49 <span>/ mo</span></div>
+          <div class="pc-desc">For teams that screen, chat, and interview from one workspace.</div>
+          <ul class="pc-features">
+            <li>Unlimited resume screens</li>
+            <li>LangGraph fit-gap screening</li>
+            <li>GitHub evidence mapping</li>
+            <li>Full evidence dashboard</li>
+            <li>TalentPlus GPT (RAG chat)</li>
+            <li>Live WebSocket score updates</li>
+            <li>AI voice interviews and email links</li>
+          </ul>
+          <a href="#" class="btn-primary pc-btn magnetic" data-app-login>Start on Growth</a>
+        </div>
+
+        <div class="pricing-card glass-card aos-fade-up aos-delay-2">
+          <div class="pc-tier">Enterprise</div>
+          <div class="pc-price">Custom</div>
+          <div class="pc-desc">For companies that need ATS hooks, a private model, or their own network.</div>
+          <ul class="pc-features">
+            <li>Everything in Growth</li>
+            <li>MCP and ATS integrations</li>
+            <li>Custom embedding models</li>
+            <li>On-prem or VPC deployment</li>
+            <li>SSO and SAML</li>
+            <li>Dedicated support</li>
+          </ul>
+          <a href="mailto:sridhargd1234@gmail.com?subject=TalentPlus%20AI%20Enterprise" class="btn-ghost pc-btn">Talk to us</a>
+        </div>
+      </div>
+
+      <p class="pricing-note aos-fade-up">USD, billed monthly. Starter needs no card. Switch plans from the same account you use to sign in.</p>
+
+      <div class="pricing-faq aos-fade-up">
+        <h3>Pricing questions</h3>
+        <div class="pricing-faq-grid">
+          <div>
+            <h4>Is screening priced per resume?</h4>
+            <p>No. Starter includes 25 screens a month. Growth and Enterprise do not charge per candidate.</p>
+          </div>
+          <div>
+            <h4>What is a voice interview?</h4>
+            <p>After a candidate clears the screen, TalentPlus can run a LiveKit interview and write the score back to the profile. It is included on Growth and Enterprise.</p>
+          </div>
+          <div>
+            <h4>Where does the resume data live?</h4>
+            <p>Each workspace is session-isolated. Enterprise can run the stack in your VPC or on-prem if the data cannot leave your network.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       REVIEWS & FEEDBACK
+  ════════════════════════════════════════════════ -->
+  <section class="testimonials" id="reviews" aria-label="Customer reviews">
+    <div class="section-inner">
+      <div class="section-header aos-fade-up">
+        <span class="section-tag">REVIEWS</span>
+        <h2>What hiring teams say</h2>
+      </div>
+
+      <div class="testimonial-slider" id="testimonialSlider">
+        <div class="testimonial-track" id="testimonialTrack">
+          <div class="testimonial-card glass-card">
+            <div class="tc-stars">★★★★★</div>
+            <p>"TalentPlus GPT changed how we do technical screening. Instead of reading 200 resumes, I just ask who has the right stack and get ranked answers in seconds."</p>
+            <div class="tc-author">
+              <div class="tc-avatar">PM</div>
+              <div>
+                <div class="tc-name">Priya Menon</div>
+                <div class="tc-role">Engineering Recruiter, Bangalore</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card glass-card">
+            <div class="tc-stars">★★★★★</div>
+            <p>"The GitHub evidence mapping is the killer feature. Candidates can't fake commit history. TalentPlus surfaces the real signal from noise in seconds."</p>
+            <div class="tc-author">
+              <div class="tc-avatar">RV</div>
+              <div>
+                <div class="tc-name">Rohan Verma</div>
+                <div class="tc-role">Head of Talent, SaaS Startup</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card glass-card">
+            <div class="tc-stars">★★★★★</div>
+            <p>"We cut our shortlisting time from 2 weeks to 2 days. The LangGraph agent handles the entire first-pass and the evidence dashboard makes final decisions easy."</p>
+            <div class="tc-author">
+              <div class="tc-avatar">AS</div>
+              <div>
+                <div class="tc-name">Anjali Sharma</div>
+                <div class="tc-role">HR Director, Tech Scale-up</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card glass-card">
+            <div class="tc-stars">★★★★★</div>
+            <p>"The session-aware RAG is brilliant — I can have a whole conversation about my candidate pool and it remembers context. This is the future of recruiting."</p>
+            <div class="tc-author">
+              <div class="tc-avatar">KP</div>
+              <div>
+                <div class="tc-name">Kiran Pillai</div>
+                <div class="tc-role">Technical Recruiter, Series B</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-dots" id="sliderDots">
+          <span class="dot active" data-idx="0"></span>
+          <span class="dot" data-idx="1"></span>
+          <span class="dot" data-idx="2"></span>
+          <span class="dot" data-idx="3"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       CTA FINAL
+  ════════════════════════════════════════════════ -->
+  <section class="cta-final">
+    <div class="section-inner">
+      <div class="cta-card glass-card aos-fade-up">
+        <div class="cta-glow"></div>
+        <div class="cta-tag">GET STARTED</div>
+        <h2>Start hiring with intelligence today</h2>
+        <p>Upload your first resume and watch TalentPlus AI parse, screen, score, and surface insights — in under 15 seconds.</p>
+        <div class="cta-actions">
+          <a href="#" class="btn-primary btn-lg magnetic">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Get early access — it's free
+          </a>
+          <a href="#" class="btn-ghost btn-lg">
+            Book a demo
+          </a>
+        </div>
+        <p class="cta-note">No credit card required · Session-isolated · Secure by default</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="logo-mark">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="80" height="80" rx="18" fill="url(#footerLogoGrad)"/>
+              <defs>
+                <linearGradient id="footerLogoGrad" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#2ee6d2"/>
+                  <stop offset="100%" stop-color="#0f766e"/>
+                </linearGradient>
+              </defs>
+              <rect x="18" y="22" width="30" height="7" rx="2" fill="white"/>
+              <rect x="28" y="22" width="10" height="28" rx="2" fill="white"/>
+              <rect x="56" y="26" width="12" height="4" rx="1.5" fill="white" fill-opacity="0.9"/>
+              <rect x="61" y="21" width="4" height="12" rx="1.5" fill="white" fill-opacity="0.9"/>
+            </svg>
+          </div>
+          <span class="logo-text">TalentPlus <span class="logo-ai">AI</span></span>
+        </div>
+        <p>Global hiring intelligence for high-growth teams. Parse, screen, score — in seconds.</p>
+      </div>
+      <div class="footer-links">
+        <div class="fl-col">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#gpt">TalentPlus GPT</a>
+          <a href="#results">Results</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#reviews">Reviews</a>
+        </div>
+        <div class="fl-col">
+          <h4>Tech</h4>
+          <a href="#">LangGraph Agent</a>
+          <a href="#">GitHub Evidence</a>
+          <a href="#">RAG Architecture</a>
+          <a href="#">API Reference</a>
+        </div>
+        <div class="fl-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TalentPlus AI. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Override in production before this block: window.TALENTPLUS_APP_URL = 'https://your-app-host'; */
+    window.TALENTPLUS_APP_URL = window.TALENTPLUS_APP_URL || 'http://127.0.0.1:3000';
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

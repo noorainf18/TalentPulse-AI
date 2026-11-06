@@ -1,0 +1,162 @@
+[
+  {
+    "model": "candidates.teamprofile",
+    "pk": 1,
+    "fields": {
+      "role": "Senior Agentic AI Engineer",
+      "seniority_level": "Senior",
+      "department": "AI Platform",
+      "current_skills": ["LangGraph", "FastMCP", "Python", "FastAPI", "Anthropic Claude API", "Docker", "PostgreSQL", "LangChain"],
+      "missing_skills": ["Rust", "Terraform", "Kubernetes", "Azure", "TypeScript"],
+      "culture_values": ["ownership", "open-source contributor", "async-first", "documentation-driven", "bias-for-action"],
+      "hiring_priority": "High",
+      "headcount_needed": 2,
+      "min_experience_years": 3,
+      "preferred_experience_years": 5,
+      "tech_stack_focus": "Agentic AI, LLM orchestration, MCP server development",
+      "team_size": 6,
+      "remote_friendly": true,
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "candidates.teamprofile",
+    "pk": 2,
+    "fields": {
+      "role": "AI Infrastructure Engineer",
+      "seniority_level": "Mid",
+      "department": "AI Platform",
+      "current_skills": ["Docker", "FastAPI", "Python", "PostgreSQL", "Redis", "GitHub Actions"],
+      "missing_skills": ["Terraform", "Kubernetes", "AWS EKS", "Prometheus", "Grafana", "Helm"],
+      "culture_values": ["reliability", "observability", "scalability", "incident-ownership", "SRE mindset"],
+      "hiring_priority": "High",
+      "headcount_needed": 1,
+      "min_experience_years": 2,
+      "preferred_experience_years": 4,
+      "tech_stack_focus": "MLOps, deployment pipelines, infra-as-code",
+      "team_size": 4,
+      "remote_friendly": true,
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "candidates.teamprofile",
+    "pk": 3,
+    "fields": {
+      "role": "LLM Product Engineer",
+      "seniority_level": "Mid",
+      "department": "Product AI",
+      "current_skills": ["Python", "OpenAI API", "LangChain", "Streamlit", "PostgreSQL", "REST APIs"],
+      "missing_skills": ["LangGraph", "FastMCP", "TypeScript", "Next.js", "Supabase Realtime", "Anthropic Claude API"],
+      "culture_values": ["user-centric thinking", "rapid prototyping", "product intuition", "cross-functional collaboration", "demo-driven development"],
+      "hiring_priority": "Medium",
+      "headcount_needed": 2,
+      "min_experience_years": 1,
+      "preferred_experience_years": 3,
+      "tech_stack_focus": "LLM product features, RAG pipelines, user-facing AI tools",
+      "team_size": 5,
+      "remote_friendly": true,
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "candidates.teamprofile",
+    "pk": 4,
+    "fields": {
+      "role": "ML Engineer – Fine-tuning & Evaluation",
+      "seniority_level": "Mid",
+      "department": "ML Research",
+      "current_skills": ["Python", "PyTorch", "HuggingFace Transformers", "scikit-learn", "Pandas", "NumPy"],
+      "missing_skills": ["LoRA / PEFT fine-tuning", "LLM evaluation frameworks", "W&B", "vLLM", "RLHF", "dataset curation pipelines"],
+      "culture_values": ["research rigour", "reproducibility", "experiment tracking", "intellectual curiosity", "peer review culture"],
+      "hiring_priority": "Medium",
+      "headcount_needed": 1,
+      "min_experience_years": 2,
+      "preferred_experience_years": 4,
+      "tech_stack_focus": "Model fine-tuning, RLHF, LLM benchmarking, evaluation harnesses",
+      "team_size": 3,
+      "remote_friendly": false,
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "candidates.teamprofile",
+    "pk": 5,
+    "fields": {
+      "role": "AI Backend Engineer",
+      "seniority_level": "Junior",
+      "department": "Core Backend",
+      "current_skills": ["Python", "Django", "PostgreSQL", "REST APIs", "Celery", "Redis"],
+      "missing_skills": ["FastAPI", "LangChain", "async Python", "vector databases", "MCP protocol", "WebSockets"],
+      "culture_values": ["clean code", "test-driven development", "code review culture", "learning mindset", "reliability"],
+      "hiring_priority": "High",
+      "headcount_needed": 3,
+      "min_experience_years": 0,
+      "preferred_experience_years": 2,
+      "tech_stack_focus": "API development, async task queues, database optimisation",
+      "team_size": 8,
+      "remote_friendly": true,
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "candidates.teamprofile",
+    "pk": 6,
+    "fields": {
+      "role": "Full-Stack AI Product Developer",
+      "seniority_level": "Mid",
+      "department": "Product AI",
+      "current_skills": ["React", "Next.js", "TypeScript", "Tailwind CSS", "FastAPI", "Python"],
+      "missing_skills": ["LangGraph", "real-time subscriptions", "Supabase", "WebSockets", "AI agent UI patterns", "shadcn/ui"],
+      "culture_values": ["design sensibility", "product ownership", "user empathy", "fast iteration", "shipping culture"],
+      "hiring_priority": "Medium",
+      "headcount_needed": 2,
+      "min_experience_years": 2,
+      "preferred_experience_years": 4,
+      "tech_stack_focus": "AI-first product UI, agent trace dashboards, real-time data interfaces",
+      "team_size": 5,
+      "remote_friendly": true,
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "candidates.teamprofile",
+    "pk": 7,
+    "fields": {
+      "role": "Vector Search & Data Engineer",
+      "seniority_level": "Mid",
+      "department": "Data Platform",
+      "current_skills": ["Python", "PostgreSQL", "pgvector", "FAISS", "Pandas", "SQL"],
+      "missing_skills": ["Neo4j", "LanceDB", "hybrid search (vector + graph)", "Qdrant", "Weaviate", "graph data modelling"],
+      "culture_values": ["data quality obsession", "performance benchmarking", "latency awareness", "documentation", "ownership"],
+      "hiring_priority": "Low",
+      "headcount_needed": 1,
+      "min_experience_years": 2,
+      "preferred_experience_years": 3,
+      "tech_stack_focus": "Vector databases, hybrid search, embedding pipelines, data retrieval infrastructure",
+      "team_size": 3,
+      "remote_friendly": true,
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "candidates.teamprofile",
+    "pk": 8,
+    "fields": {
+      "role": "DevOps / MLOps Engineer",
+      "seniority_level": "Senior",
+      "department": "Platform Engineering",
+      "current_skills": ["Docker", "GitHub Actions", "AWS EC2", "Linux", "Bash", "PostgreSQL"],
+      "missing_skills": ["Terraform", "Kubernetes", "Helm", "ArgoCD", "Prometheus + Grafana", "Railway", "model serving (vLLM, TorchServe)"],
+      "culture_values": ["infrastructure-as-code", "zero-downtime deployments", "on-call ownership", "automation-first", "cost optimisation"],
+      "hiring_priority": "High",
+      "headcount_needed": 1,
+      "min_experience_years": 3,
+      "preferred_experience_years": 6,
+      "tech_stack_focus": "CI/CD pipelines, container orchestration, cloud infra, model serving",
+      "team_size": 4,
+      "remote_friendly": false,
+      "created_at": "2025-01-01T00:00:00Z"
+    }
+  }
+]

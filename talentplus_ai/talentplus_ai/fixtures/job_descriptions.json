@@ -1,0 +1,191 @@
+[
+  {
+    "model": "candidates.jobdescription",
+    "pk": 1,
+    "fields": {
+      "title": "Senior Agentic AI Engineer",
+      "department": "AI Platform",
+      "team_profile": 1,
+      "description": "We are building the next generation of autonomous AI systems. You will architect and ship production-grade agentic workflows using LangGraph and FastMCP, integrating with Claude and other frontier LLMs. You will own the full pipeline: from tool design and agent orchestration to evaluation and deployment.",
+      "responsibilities": [
+        "Design and implement multi-node LangGraph workflows for autonomous decision-making",
+        "Build and maintain FastMCP tool servers for real-world API orchestration",
+        "Integrate Anthropic Claude API for high-nuance reasoning tasks",
+        "Own end-to-end agent evaluation: correctness, latency, cost",
+        "Collaborate with product and backend teams to ship agentic features",
+        "Write technical documentation and mentor junior engineers",
+        "Contribute to internal and open-source tooling"
+      ],
+      "required_skills": ["LangGraph", "FastMCP", "Python", "FastAPI", "LLM APIs", "Docker", "PostgreSQL"],
+      "preferred_skills": ["TypeScript", "Kubernetes", "Terraform", "Rust", "LangSmith", "Supabase"],
+      "required_experience_years": 3,
+      "employment_type": "Full-Time",
+      "location": "Bengaluru / Remote",
+      "salary_range_lpa": "25–45 LPA",
+      "is_active": true,
+      "created_at": "2025-01-15T00:00:00Z"
+    }
+  },
+  {
+    "model": "candidates.jobdescription",
+    "pk": 2,
+    "fields": {
+      "title": "AI Infrastructure Engineer",
+      "department": "AI Platform",
+      "team_profile": 2,
+      "description": "You will own the infrastructure layer that keeps our AI systems running reliably at scale. This includes containerised deployments, CI/CD pipelines, monitoring, and cloud cost optimisation. You will work closely with AI engineers to ensure models and agents ship fast and break rarely.",
+      "responsibilities": [
+        "Design and manage Kubernetes clusters for AI workloads",
+        "Build and maintain CI/CD pipelines using GitHub Actions and ArgoCD",
+        "Implement observability stacks: Prometheus, Grafana, alerting",
+        "Optimise cloud costs on AWS and GCP",
+        "Manage secrets, env config, and infra-as-code with Terraform",
+        "Support model serving infrastructure (vLLM, TorchServe)",
+        "On-call rotation for production incidents"
+      ],
+      "required_skills": ["Docker", "GitHub Actions", "AWS", "Python", "Linux", "PostgreSQL"],
+      "preferred_skills": ["Terraform", "Kubernetes", "Helm", "ArgoCD", "Prometheus", "Grafana"],
+      "required_experience_years": 2,
+      "employment_type": "Full-Time",
+      "location": "Bengaluru (On-site preferred)",
+      "salary_range_lpa": "18–32 LPA",
+      "is_active": true,
+      "created_at": "2025-01-15T00:00:00Z"
+    }
+  },
+  {
+    "model": "candidates.jobdescription",
+    "pk": 3,
+    "fields": {
+      "title": "LLM Product Engineer",
+      "department": "Product AI",
+      "team_profile": 3,
+      "description": "You will translate LLM capabilities into product features users love. This role sits at the intersection of AI engineering and product development — you'll prototype fast, gather user feedback, and ship polished AI-powered features across our platform.",
+      "responsibilities": [
+        "Build and iterate on RAG pipelines for product features",
+        "Integrate LangGraph agents into user-facing workflows",
+        "Collaborate with designers and PMs to define AI feature specs",
+        "Evaluate LLM outputs for quality, safety, and user experience",
+        "Build internal tools for prompt management and A/B testing",
+        "Ship Next.js + FastAPI features end-to-end",
+        "Write clear documentation for AI feature behaviour"
+      ],
+      "required_skills": ["Python", "LangChain", "OpenAI API", "REST APIs", "PostgreSQL"],
+      "preferred_skills": ["LangGraph", "FastMCP", "TypeScript", "Next.js", "Supabase", "Anthropic Claude API"],
+      "required_experience_years": 1,
+      "employment_type": "Full-Time",
+      "location": "Remote",
+      "salary_range_lpa": "12–22 LPA",
+      "is_active": true,
+      "created_at": "2025-01-15T00:00:00Z"
+    }
+  },
+  {
+    "model": "candidates.jobdescription",
+    "pk": 4,
+    "fields": {
+      "title": "ML Engineer – Fine-tuning & Evaluation",
+      "department": "ML Research",
+      "team_profile": 4,
+      "description": "You will own the model quality layer of our AI stack. You'll design fine-tuning experiments, build evaluation harnesses, and ensure our deployed models perform reliably across production use cases. This is a research-meets-engineering role — rigour and speed both matter.",
+      "responsibilities": [
+        "Design and run LoRA/PEFT fine-tuning experiments on open-source LLMs",
+        "Build automated evaluation pipelines for LLM output quality",
+        "Curate and clean training datasets for domain-specific tasks",
+        "Track experiments using W&B or MLflow",
+        "Implement RLHF feedback collection pipelines",
+        "Benchmark models on latency, cost, and accuracy",
+        "Write research notes and share findings with the team"
+      ],
+      "required_skills": ["Python", "PyTorch", "HuggingFace Transformers", "scikit-learn", "Pandas"],
+      "preferred_skills": ["LoRA", "PEFT", "W&B", "vLLM", "RLHF", "LLM eval frameworks", "dataset curation"],
+      "required_experience_years": 2,
+      "employment_type": "Full-Time",
+      "location": "Bengaluru (On-site)",
+      "salary_range_lpa": "20–35 LPA",
+      "is_active": true,
+      "created_at": "2025-01-15T00:00:00Z"
+    }
+  },
+  {
+    "model": "candidates.jobdescription",
+    "pk": 5,
+    "fields": {
+      "title": "AI Backend Engineer (Junior)",
+      "department": "Core Backend",
+      "team_profile": 5,
+      "description": "You will build the backend services that power our AI platform. This is an excellent entry point for engineers who want to grow into AI engineering — you'll work on real production systems from day one, with mentorship from senior engineers.",
+      "responsibilities": [
+        "Build and maintain Django REST Framework APIs",
+        "Write Celery tasks for async AI workloads",
+        "Optimise PostgreSQL queries and schema design",
+        "Integrate vector database endpoints into backend services",
+        "Write unit and integration tests (pytest)",
+        "Participate in code reviews and team planning",
+        "Learn and adopt FastAPI and async Python patterns over time"
+      ],
+      "required_skills": ["Python", "Django", "PostgreSQL", "REST APIs"],
+      "preferred_skills": ["FastAPI", "Celery", "Redis", "async Python", "Docker", "LangChain"],
+      "required_experience_years": 0,
+      "employment_type": "Full-Time",
+      "location": "Remote",
+      "salary_range_lpa": "6-14 LPA",
+      "is_active": true,
+      "created_at": "2025-01-15T00:00:00Z"
+    }
+  },
+  {
+    "model": "candidates.jobdescription",
+    "pk": 6,
+    "fields": {
+      "title": "Full-Stack AI Product Developer",
+      "department": "Product AI",
+      "team_profile": 6,
+      "description": "You will own the UI layer of our AI products — from agent trace dashboards to real-time evaluation interfaces. You're comfortable in both React/Next.js and Python/FastAPI and you have a strong sense of what good AI product UX looks like.",
+      "responsibilities": [
+        "Build Next.js dashboards for agent monitoring and evaluation",
+        "Implement real-time updates with Supabase Realtime / WebSockets",
+        "Design and ship reusable UI components with shadcn/ui and Tailwind",
+        "Integrate FastAPI backend endpoints into the frontend",
+        "Collaborate with AI engineers to visualise agent reasoning traces",
+        "Conduct user interviews and iterate on UI based on recruiter feedback",
+        "Own frontend performance and accessibility"
+      ],
+      "required_skills": ["React", "Next.js", "TypeScript", "Tailwind CSS", "FastAPI", "Python"],
+      "preferred_skills": ["LangGraph", "Supabase Realtime", "shadcn/ui", "WebSockets", "AI agent UI"],
+      "required_experience_years": 2,
+      "employment_type": "Full-Time",
+      "location": "Remote",
+      "salary_range_lpa": "15–28 LPA",
+      "is_active": true,
+      "created_at": "2025-01-15T00:00:00Z"
+    }
+  },
+  {
+    "model": "candidates.jobdescription",
+    "pk": 7,
+    "fields": {
+      "title": "Vector Search & Data Engineer",
+      "department": "Data Platform",
+      "team_profile": 7,
+      "description": "You will build the retrieval backbone of our AI systems. From embedding pipelines to hybrid graph+vector search, you'll ensure our agents can find the right information fast. This role requires deep curiosity about data architecture and retrieval quality.",
+      "responsibilities": [
+        "Design and maintain vector embedding pipelines for resume and document data",
+        "Implement hybrid search combining pgvector and graph traversal",
+        "Evaluate and benchmark retrieval quality across different embedding models",
+        "Build data ingestion pipelines from PDF, HTML, and API sources",
+        "Optimise query latency for real-time search use cases",
+        "Maintain data quality standards and monitoring",
+        "Document data schemas and search architecture"
+      ],
+      "required_skills": ["Python", "PostgreSQL", "pgvector", "FAISS", "SQL", "Pandas"],
+      "preferred_skills": ["Neo4j", "LanceDB", "Qdrant", "Weaviate", "hybrid search", "graph data modelling"],
+      "required_experience_years": 2,
+      "employment_type": "Full-Time",
+      "location": "Remote",
+      "salary_range_lpa": "14–24 LPA",
+      "is_active": false,
+      "created_at": "2025-01-15T00:00:00Z"
+    }
+  }
+]

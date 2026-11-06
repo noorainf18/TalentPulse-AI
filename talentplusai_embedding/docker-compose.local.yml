@@ -1,0 +1,8 @@
+services:
+  embedding:
+    build: .
+    container_name: talentplusai_embedding
+    ports:
+      - "8010:8010"
+    env_file:
+      - .env
