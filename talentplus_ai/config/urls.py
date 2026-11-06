@@ -9,8 +9,17 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 def health(_request):
     return JsonResponse({"status": "ok"})
 
+
+def home(request):
+    # Navbar and the 404 page reverse this name. Send people to the app.
+    return redirect(getattr(settings, "FRONTEND_URL", "/"))
+
+
 urlpatterns = [
+    path("", home, name="home"),
+    path("about/", home, name="about"),
     path("health/", health),
+    path("users/", include("talentplus_ai.users.urls")),
     path("admin/", admin.site.urls),
     path("docs", lambda request: redirect("/api/schema/swagger-ui/")),
     path("docs/", lambda request: redirect("/api/schema/swagger-ui/")),
