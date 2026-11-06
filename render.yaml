@@ -99,16 +99,13 @@ services:
         fromDatabase:
           name: talentplus-db
           property: connectionString
+      # Do not copy these from talentplus-api. They are optional there
+      # (sync: false), and Render aborts the worker if the source var
+      # has not been created yet. Paste the same values here when you have them.
       - key: ANTHROPIC_API_KEY
-        fromService:
-          name: talentplus-api
-          type: web
-          envVarKey: ANTHROPIC_API_KEY
+        sync: false
       - key: GITHUB_TOKEN
-        fromService:
-          name: talentplus-api
-          type: web
-          envVarKey: GITHUB_TOKEN
+        sync: false
       - key: REDIS_URL
         fromService:
           name: talentplus-redis
